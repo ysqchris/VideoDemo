@@ -23,11 +23,11 @@ import java.net.URI;
  * <p>
  * 包 名：com.yusq.videodemo
  * <p>
- * 类 名：
+ * 类 名：SplashActivity
  * <p>
  * 作 者：Yusq
  * <p>
- * 简 述：
+ * 简 述：启动页
  */
 public class SplashActivity extends AppCompatActivity {
 
