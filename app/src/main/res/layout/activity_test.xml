@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/show_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择区号"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        />
+
+    <RelativeLayout
+        android:id="@+id/picker_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33000000"
+        android:visibility="gone"
+        >
+
+        <com.yusq.videodemo.test.MyPickerScrollView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/pickerscrlllview"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_above="@+id/pickerscrlllview"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/select_text_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="确定"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
