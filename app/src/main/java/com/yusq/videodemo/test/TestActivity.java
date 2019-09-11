@@ -22,24 +22,51 @@ public class TestActivity  extends AppCompatActivity {
     private  RelativeLayout picker_rel;
     private  Button show_btn;
     private List<String> mDataList;
+    private WheelPickerView mWheelPickerView1 = null;
+    private WheelPickerView mWheelPickerView2 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        initView();
+        mWheelPickerView1 = findViewById(R.id.wheel_picker_1);
+        mWheelPickerView2 = findViewById(R.id.wheel_picker_2);
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            list.add("item" + i);
+        }
+        //设置原始数据
+        mWheelPickerView1.setItems(list);
+        //设置初始位置
+        mWheelPickerView1.setInitPosition(4);
+
+        //设置原始数据
+        mWheelPickerView2.setItems(list);
+        //设置初始位置
+        mWheelPickerView2.setInitPosition(4);
+
+        mWheelPickerView1.setListener(new WheelPickerView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int index) {
+                Toast.makeText(TestActivity.this, "item " + index, Toast.LENGTH_SHORT).show();
+                mWheelPickerView2.setInitPosition(index);
+                mWheelPickerView2.invalidate();
+            }
+        });
+
+        /*initView();
         initLinstener();
-        initData();
+        initData();*/
     }
 
     /**
      * 初始化
      */
     private void initView() {
-        mMyPickerScrollView = (MyPickerScrollView) findViewById(R.id.pickerscrlllview);
+       /* mMyPickerScrollView = (MyPickerScrollView) findViewById(R.id.pickerscrlllview);
         picker_rel = findViewById(R.id.picker_rl);
         show_btn = findViewById(R.id.show_btn);
-        tv_yes = findViewById(R.id.select_text_confirm);
+        tv_yes = findViewById(R.id.select_text_confirm);*/
     }
 
     /**
@@ -79,12 +106,12 @@ public class TestActivity  extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            int vId = v.getId();
+            /*int vId = v.getId();
             if (vId == R.id.show_btn) {
                 picker_rel.setVisibility(View.VISIBLE);
             } else if (vId == R.id.select_text_confirm) {
                 picker_rel.setVisibility(View.GONE);
-            }
+            }*/
         }
     };
 
