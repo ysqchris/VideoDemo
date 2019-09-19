@@ -1,4 +1,4 @@
-package com.yusq.videodemo.test;
+package com.yusq.videodemo.test.wheelpicker;
 
 public class SmoothScrollTimerTask  implements Runnable{
 

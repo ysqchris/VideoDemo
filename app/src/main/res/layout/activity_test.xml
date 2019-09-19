@@ -53,7 +53,7 @@
         android:layout_alignParentBottom="true"
       >
 
-        <com.yusq.videodemo.test.WheelPickerView
+        <com.yusq.videodemo.test.wheelpicker.WheelPickerView
             android:id="@+id/wheel_picker_1"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -62,7 +62,7 @@
             app:awv_itemsVisibleCount="7"
             android:background="@color/white"
             />
-        <com.yusq.videodemo.test.WheelPickerView
+        <com.yusq.videodemo.test.wheelpicker.WheelPickerView
             android:id="@+id/wheel_picker_2"
             android:layout_width="0dp"
             android:layout_weight="1"

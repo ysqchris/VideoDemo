@@ -1,4 +1,4 @@
-package com.yusq.videodemo.test;
+package com.yusq.videodemo.test.wheelpicker;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -292,7 +292,7 @@ public class WheelPickerView  extends View {
                 canvas.restore();
             } else {
                 int translateY = (int) (radius - Math.cos(radian) * radius - (Math.sin(radian) * itemTxtHeight) / 2D);
-                canvas.translate(2.0F, translateY);
+                canvas.translate(0, translateY);
                 canvas.scale(1.0F, (float) Math.sin(radian));
                 if (translateY <= firstLineY && itemTxtHeight + translateY >= firstLineY) {
                     // first divider
