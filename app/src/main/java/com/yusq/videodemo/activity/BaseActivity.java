@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.yusq.videodemo.controler.LifeCircleMvpActivity;
 import com.yusq.videodemo.inject.SetViewInject;
 
 import butterknife.ButterKnife;
@@ -22,8 +23,7 @@ import butterknife.ButterKnife;
  * 简 述：
  */
 
-public class BaseActivity extends AppCompatActivity {
-
+public class BaseActivity extends LifeCircleMvpActivity{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

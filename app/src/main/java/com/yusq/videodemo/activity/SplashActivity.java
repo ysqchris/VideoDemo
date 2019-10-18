@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.yusq.videodemo.R;
+import com.yusq.videodemo.imlp.ISpashActivityConstract;
 import com.yusq.videodemo.inject.SetViewInject;
 import com.yusq.videodemo.presenter.SplashTimerPresenter;
 import com.yusq.videodemo.utils.CustomCountTimer;
@@ -34,16 +35,14 @@ import butterknife.OnClick;
  * 简 述：启动页
  */
 @SetViewInject(mainLayoutId = R.layout.activity_splash)
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseActivity implements ISpashActivityConstract.Iview {
 
     @BindView(R.id.vv_play)
     FullScreenVideoView vvPlay;
     @BindView(R.id.splash_time_tv)
     TextView splashTimeTv;
 
-
-    private SplashTimerPresenter  timerPresenter;
-
+    private ISpashActivityConstract.Ipresenter  timerPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -106,6 +105,7 @@ public class SplashActivity extends BaseActivity {
      * 设置显示文字 presenter回调
      * @param text
      */
+    @Override
     public void setTimerStatusTv(String text) {
         if(splashTimeTv != null){
             splashTimeTv.setText(text);
@@ -117,15 +117,11 @@ public class SplashActivity extends BaseActivity {
      * 设置显示状态 presenter回调
      * @param pStatus
      */
+    @Override
     public void setTimerStatus(boolean pStatus) {
         if(splashTimeTv != null){
             splashTimeTv.setClickable(pStatus);
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        timerPresenter.cancelTime();
-        super.onDestroy();
-    }
 }

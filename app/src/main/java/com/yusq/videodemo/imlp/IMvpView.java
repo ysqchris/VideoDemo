@@ -1,4 +1,6 @@
-package com.yusq.videodemo.presenter;
+package com.yusq.videodemo.imlp;
+
+import com.yusq.videodemo.controler.MvpControler;
 
 /**
  * 项目名：VideoDemo
@@ -14,5 +16,7 @@ package com.yusq.videodemo.presenter;
  * 简 述：
  */
 public interface IMvpView {
+
+    MvpControler getMvpControler();
 
 }

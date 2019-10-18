@@ -1,6 +1,11 @@
 package com.yusq.videodemo.presenter;
 
+import android.util.Log;
+
 import com.yusq.videodemo.activity.SplashActivity;
+import com.yusq.videodemo.controler.BaseAbstractLifePresenter;
+import com.yusq.videodemo.imlp.IMvpView;
+import com.yusq.videodemo.imlp.ISpashActivityConstract;
 import com.yusq.videodemo.utils.CustomCountTimer;
 
 /**
@@ -16,29 +21,31 @@ import com.yusq.videodemo.utils.CustomCountTimer;
  * <p>
  * 简 述：
  */
-public class SplashTimerPresenter {
+public class SplashTimerPresenter  extends  BaseAbstractLifePresenter<ISpashActivityConstract.Iview> implements ISpashActivityConstract.Ipresenter {
+
+    private static final String TAG = "CHRIS";
 
     private CustomCountTimer countTimer;
-    private SplashActivity  mActivity;
 
-    public SplashTimerPresenter(SplashActivity pActivity) {
-        mActivity = pActivity;
+    public SplashTimerPresenter(ISpashActivityConstract.Iview pIMvpView) {
+        super(pIMvpView);
     }
 
     /**
      * 初始化计时器
      */
+    @Override
     public void initTimerCount() {
         countTimer = new CustomCountTimer(5, new CustomCountTimer.ICountDownHandler() {
             @Override
             public void onTitcker(int time) {
-                mActivity.setTimerStatusTv(String.valueOf(time));
+                getView().setTimerStatusTv(String.valueOf(time));
             }
 
             @Override
             public void onFinish() {
-                mActivity.setTimerStatusTv("跳过");
-                mActivity.setTimerStatus(true);
+                getView().setTimerStatusTv("跳过");
+                getView().setTimerStatus(true);
             }
         });
         countTimer.start();
@@ -51,4 +58,15 @@ public class SplashTimerPresenter {
         }
     }
 
+    @Override
+    protected ISpashActivityConstract.Iview getEmptyView() {
+        return null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "onDestroy: = SplashTimerPresenter");
+        cancelTime();
+    }
 }

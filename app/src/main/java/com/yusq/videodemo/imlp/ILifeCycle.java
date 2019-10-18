@@ -1,8 +1,7 @@
-package com.yusq.videodemo.presenter;
+package com.yusq.videodemo.imlp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 /**
  * 项目名：VideoDemo
@@ -31,9 +30,11 @@ public interface ILifeCycle  {
 
     void onStop();
 
-    void destoryView();
+    void onDestroy();
 
-    void onViewDestory();
+    void destroyView();
+
+    void onViewDestroy();
 
     void onNewIntent(Intent intent);
 
