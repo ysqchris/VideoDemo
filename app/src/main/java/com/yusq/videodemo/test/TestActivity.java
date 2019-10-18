@@ -1,6 +1,8 @@
 package com.yusq.videodemo.test;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -15,9 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestActivity  extends AppCompatActivity {
-
-
-    private MyPickerScrollView mMyPickerScrollView;
+    private  MyPickerScrollView mMyPickerScrollView;
     private  TextView tv_yes;
     private  RelativeLayout picker_rel;
     private  Button show_btn;
@@ -115,5 +115,8 @@ public class TestActivity  extends AppCompatActivity {
         }
     };
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

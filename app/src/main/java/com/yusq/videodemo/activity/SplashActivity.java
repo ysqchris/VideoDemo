@@ -5,16 +5,20 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.yusq.videodemo.R;
+import com.yusq.videodemo.inject.SetViewInject;
+import com.yusq.videodemo.presenter.SplashTimerPresenter;
 import com.yusq.videodemo.utils.CustomCountTimer;
+import com.yusq.videodemo.view.FullScreenVideoView;
 
 import java.io.File;
-import java.net.URI;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * 项目名：VideoDemo
@@ -23,72 +27,105 @@ import java.net.URI;
  * <p>
  * 包 名：com.yusq.videodemo
  * <p>
- * 类 名：SplashActivity
+  * 类 名：SplashActivity
  * <p>
  * 作 者：Yusq
  * <p>
  * 简 述：启动页
  */
-public class SplashActivity extends AppCompatActivity {
+@SetViewInject(mainLayoutId = R.layout.activity_splash)
+public class SplashActivity extends BaseActivity {
 
-    private VideoView  mVPlay;
-    private CustomCountTimer countTimer;
-    private TextView mSplashTimeTv;
+    @BindView(R.id.vv_play)
+    FullScreenVideoView vvPlay;
+    @BindView(R.id.splash_time_tv)
+    TextView splashTimeTv;
+
+
+    private SplashTimerPresenter  timerPresenter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        mSplashTimeTv = findViewById(R.id.splash_time_tv);
-        mSplashTimeTv.setClickable(false);
+        initTimePresenter();
+        inVideoView();
+        initListener();
+    }
 
-        mVPlay =  findViewById(R.id.vv_play);
-        mVPlay.setVideoURI(Uri.parse("android.resource://"+getPackageName() + File.separator + R.raw.trailer));
-        mVPlay.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+
+    /**
+     * 初始化p层引用
+     */
+    private void initTimePresenter() {
+        timerPresenter = new SplashTimerPresenter(this);
+        timerPresenter.initTimerCount();
+    }
+
+
+
+    /**
+     * 初始化视频播放器
+     */
+
+    private void inVideoView() {
+        vvPlay.setVideoURI(Uri.parse("android.resource://" + getPackageName() + File.separator + R.raw.trailer));
+    }
+
+    /**
+     * 初始化监听
+     *
+     */
+    private void initListener() {
+        vvPlay.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-                mVPlay.start();
+                vvPlay.start();
             }
         });
 
-        mVPlay.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        vvPlay.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                mVPlay.start();
+                vvPlay.start();
             }
         });
 
-        countTimer = new CustomCountTimer(5, new CustomCountTimer.ICountDownHandler() {
-            @Override
-            public void onTitcker(int time) {
-                if(mSplashTimeTv != null){
-                    mSplashTimeTv.setText(time+"s");
+    }
 
-                }
-            }
 
-            @Override
-            public void onFinish() {
-                mSplashTimeTv.setText("跳过");
-                mSplashTimeTv.setClickable(true);
-                mSplashTimeTv.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SplashActivity.this , MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
-            }
-        });
-        countTimer.start();
+    @OnClick(R.id.splash_time_tv)
+    public void onViewClicked() {
+        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
+
+    /**
+     * 设置显示文字 presenter回调
+     * @param text
+     */
+    public void setTimerStatusTv(String text) {
+        if(splashTimeTv != null){
+            splashTimeTv.setText(text);
+        }
+
+    }
+
+    /**
+     * 设置显示状态 presenter回调
+     * @param pStatus
+     */
+    public void setTimerStatus(boolean pStatus) {
+        if(splashTimeTv != null){
+            splashTimeTv.setClickable(pStatus);
+        }
     }
 
     @Override
     protected void onDestroy() {
-        countTimer.cancel();
-        countTimer = null;
+        timerPresenter.cancelTime();
         super.onDestroy();
     }
 }

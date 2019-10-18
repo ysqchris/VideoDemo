@@ -1,5 +1,9 @@
 package com.yusq.videodemo.presenter;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+
 /**
  * 项目名：VideoDemo
  * <p>
@@ -14,4 +18,29 @@ package com.yusq.videodemo.presenter;
  * 简 述：p层的生命周期管理接口
  */
 public interface ILifeCycle  {
+
+    void onCreate(Bundle savedInstanceState , Intent intent , Bundle getArguments);
+
+    void onActivityCreated(Bundle savedInstanceState , Intent intent , Bundle getArguments);
+
+    void onStart();
+
+    void onResume();
+
+    void onPause();
+
+    void onStop();
+
+    void destoryView();
+
+    void onViewDestory();
+
+    void onNewIntent(Intent intent);
+
+    void onActivityResult(int requestCode, int resultCode, Intent data);
+
+    void onSaveInstanceState(Bundle pBundle);
+
+    void attachView(IMvpView pIMvpView);
+
 }
