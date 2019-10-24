@@ -17,7 +17,6 @@ import butterknife.OnClick;
 @SetViewInject(mainLayoutId = R.layout.activity_main)
 public class MainActivity extends BaseActivity {
 
-
     @BindView(R.id.rb_main_1)
     RadioButton rbMain1;
     @BindView(R.id.rb_main_2)
@@ -38,11 +37,9 @@ public class MainActivity extends BaseActivity {
     private boolean isChange;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void afterBindView() {
 
     }
-
 
     @OnClick(R.id.fac_main_home)
     public void onClick(View view) {

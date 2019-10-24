@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  * 简 述：
  */
 
-public class BaseActivity extends LifeCircleMvpActivity{
+public abstract class BaseActivity extends LifeCircleMvpActivity{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,7 +33,8 @@ public class BaseActivity extends LifeCircleMvpActivity{
             int mainLayoutId = annotation.mainLayoutId();
             if(mainLayoutId > 0){
                 setContentView(mainLayoutId);
-                ButterKnife.bind(this);
+                bindView();
+                afterBindView();
             }else{
                 throw new RuntimeException("mainLayoutId is null");
             }
@@ -41,4 +42,19 @@ public class BaseActivity extends LifeCircleMvpActivity{
             throw new RuntimeException("annotation is null");
         }
     }
+
+
+
+    /**
+     * view 的依赖注入绑定
+     */
+    private void bindView() {
+        ButterKnife.bind(this);
+    }
+
+    /**
+     * view绑定之后的操作
+     * 模板方法设计模式
+     */
+    public abstract void afterBindView();
 }

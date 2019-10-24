@@ -44,14 +44,13 @@ public class SplashActivity extends BaseActivity implements ISpashActivityConstr
 
     private ISpashActivityConstract.Ipresenter  timerPresenter;
 
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void afterBindView() {
         initTimePresenter();
         inVideoView();
         initListener();
     }
-
 
     /**
      * 初始化p层引用

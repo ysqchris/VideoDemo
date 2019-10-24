@@ -39,7 +39,7 @@ public class SplashTimerPresenter  extends  BaseAbstractLifePresenter<ISpashActi
         countTimer = new CustomCountTimer(5, new CustomCountTimer.ICountDownHandler() {
             @Override
             public void onTitcker(int time) {
-                getView().setTimerStatusTv(String.valueOf(time));
+                getView().setTimerStatusTv(time+"s");
             }
 
             @Override
