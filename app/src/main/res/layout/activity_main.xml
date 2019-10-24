@@ -11,9 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/rg_bottom_tab_main">
-
-
-
        <android.support.design.widget.FloatingActionButton
            android:id="@+id/fac_main_home"
            android:layout_width="wrap_content"
@@ -39,24 +36,24 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rb_main_1"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:button="@null"
-                android:gravity="center"
-                android:text="@string/nanjing"
-                />
-
-
-            <RadioButton
-                android:id="@+id/rb_main_2"
+                android:id="@+id/rb_main_shangnhai"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:button="@null"
                 android:gravity="center"
                 android:text="@string/shangnhai"
+                />
+
+
+            <RadioButton
+                android:id="@+id/rb_main_hangzhou"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:gravity="center"
+                android:text="@string/hangzhou"
                 />
 
         </RadioGroup>
@@ -71,7 +68,7 @@
             android:visibility="gone">
 
             <RadioButton
-                android:id="@+id/rb_main_3"
+                android:id="@+id/rb_main_beijing"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -82,13 +79,13 @@
 
 
             <RadioButton
-                android:id="@+id/rb_main_4"
+                android:id="@+id/rb_main_shenzheng"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:button="@null"
                 android:gravity="center"
-                android:text="@string/shangnhai"
+                android:text="@string/shenzheng"
                 />
 
         </RadioGroup>

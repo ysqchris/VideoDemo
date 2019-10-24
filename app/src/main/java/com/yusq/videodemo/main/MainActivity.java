@@ -11,31 +11,34 @@ import android.widget.RadioGroup;
 import com.yusq.videodemo.R;
 import com.yusq.videodemo.base.BaseActivity;
 import com.yusq.videodemo.inject.SetViewInject;
+
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
 @SetViewInject(mainLayoutId = R.layout.activity_main)
 public class MainActivity extends BaseActivity implements IMainActivityConstract.Iview {
 
-    @BindView(R.id.rb_main_1)
-    RadioButton rbMain1;
-    @BindView(R.id.rb_main_2)
-    RadioButton rbMain2;
     @BindView(R.id.rg_main_bottom)
     RadioGroup rgMainBottom;
     @BindView(R.id.rg_bottom_tab_main)
     FrameLayout rgBottomTabMain;
     @BindView(R.id.fac_main_home)
     FloatingActionButton facMainHome;
-    @BindView(R.id.rb_main_3)
-    RadioButton rbMain3;
-    @BindView(R.id.rb_main_4)
-    RadioButton rbMain4;
     @BindView(R.id.rg_main_bottom_1)
     RadioGroup rgMainBottom1;
     @BindView(R.id.fragment_layout)
     FrameLayout fragmentLayout;
+    @BindView(R.id.rb_main_shangnhai)
+    RadioButton rbMainShangnhai;
+    @BindView(R.id.rb_main_hangzhou)
+    RadioButton rbMainHangzhou;
+    @BindView(R.id.rb_main_beijing)
+    RadioButton rbMainBeijing;
+    @BindView(R.id.rb_main_shenzheng)
+    RadioButton rbMainShenzheng;
+
 
     private boolean isChange;
     private MainActivityPresenter presenter = new MainActivityPresenter(this);
@@ -71,11 +74,12 @@ public class MainActivity extends BaseActivity implements IMainActivityConstract
 
     @Override
     public void addFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_layout,fragment);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_layout, fragment);
     }
 
     @Override
     public void hideFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().hide(fragment);
     }
+
 }

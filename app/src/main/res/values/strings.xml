@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">VideoDemo</string>
     <string name="shangnhai">上海</string>
-    <string name="nanjing">南京</string>
+    <string name="hangzhou">杭州</string>
     <string name="beijing">北京</string>
+    <string name="shenzheng">深圳</string>
 </resources>

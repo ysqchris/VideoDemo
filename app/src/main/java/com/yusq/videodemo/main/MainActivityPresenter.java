@@ -2,9 +2,10 @@ package com.yusq.videodemo.main;
 
 import android.support.v4.app.Fragment;
 
+import com.yusq.videodemo.R;
 import com.yusq.videodemo.fragment.BeiJingFragment;
 import com.yusq.videodemo.fragment.HangZhouFragment;
-import com.yusq.videodemo.fragment.ShanHaiFragment;
+import com.yusq.videodemo.fragment.ShangHaiFragment;
 import com.yusq.videodemo.fragment.ShengzhengFragment;
 import com.yusq.videodemo.imlp.IMvpView;
 import com.yusq.videodemo.presenter.BaseAbstractLifePresenter;
@@ -13,6 +14,7 @@ public class MainActivityPresenter extends BaseAbstractLifePresenter<IMainActivi
 
     private int mCurrentFragmentIndex ;
     private Fragment[] mFragments = new Fragment[4];
+    private int mCurrentFragmentCheckId;
 
     public MainActivityPresenter(IMvpView pIMvpView) {
         super(pIMvpView);
@@ -51,6 +53,7 @@ public class MainActivityPresenter extends BaseAbstractLifePresenter<IMainActivi
             setCurrentShowIndex(mCurrentFragmentIndex);
         }else{
             newCurrentFragment(mCurrentFragmentIndex);
+            setCurrentShowIndex(mCurrentFragmentIndex);
         }
     }
 
@@ -59,6 +62,21 @@ public class MainActivityPresenter extends BaseAbstractLifePresenter<IMainActivi
      * @param mCurrentFragmentIndex
      */
     private void setCurrentShowIndex(int mCurrentFragmentIndex) {
+        this.mCurrentFragmentIndex = mCurrentFragmentIndex;
+        switch (mCurrentFragmentIndex){
+            case 0:
+                mCurrentFragmentCheckId =  R.id.rb_main_shangnhai;
+                break;
+            case 1:
+                mCurrentFragmentCheckId = R.id.rb_main_hangzhou;
+                break;
+            case 2:
+                mCurrentFragmentCheckId = R.id.rb_main_beijing;
+                break;
+            case 3:
+                mCurrentFragmentCheckId = R.id.rb_main_shenzheng;
+                break;
+        }
 
     }
 
@@ -70,7 +88,7 @@ public class MainActivityPresenter extends BaseAbstractLifePresenter<IMainActivi
        Fragment fragment =  null;
         switch (mCurrentFragmentIndex){
             case 0:
-                fragment = new ShanHaiFragment();
+                fragment = new ShangHaiFragment();
                 break;
             case 1:
                 fragment = new HangZhouFragment();
@@ -105,6 +123,8 @@ public class MainActivityPresenter extends BaseAbstractLifePresenter<IMainActivi
      * @param fragment
      */
     private void hideFragment(Fragment fragment) {
-        getView().hideFragment(fragment);
+        if(fragment != null && fragment.isVisible()) {
+            getView().hideFragment(fragment);
+        }
     }
 }
