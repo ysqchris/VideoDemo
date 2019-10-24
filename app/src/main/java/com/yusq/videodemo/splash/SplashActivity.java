@@ -1,19 +1,14 @@
-package com.yusq.videodemo.activity;
+package com.yusq.videodemo.splash;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.yusq.videodemo.R;
-import com.yusq.videodemo.imlp.ISpashActivityConstract;
+import com.yusq.videodemo.base.BaseActivity;
+import com.yusq.videodemo.main.MainActivity;
 import com.yusq.videodemo.inject.SetViewInject;
-import com.yusq.videodemo.presenter.SplashTimerPresenter;
-import com.yusq.videodemo.utils.CustomCountTimer;
 import com.yusq.videodemo.view.FullScreenVideoView;
 
 import java.io.File;
@@ -35,14 +30,14 @@ import butterknife.OnClick;
  * 简 述：启动页
  */
 @SetViewInject(mainLayoutId = R.layout.activity_splash)
-public class SplashActivity extends BaseActivity implements ISpashActivityConstract.Iview {
+public class SplashActivity extends BaseActivity implements ISplashActivityConstract.Iview {
 
     @BindView(R.id.vv_play)
     FullScreenVideoView vvPlay;
     @BindView(R.id.splash_time_tv)
     TextView splashTimeTv;
 
-    private ISpashActivityConstract.Ipresenter  timerPresenter;
+    private ISplashActivityConstract.Ipresenter  timerPresenter;
 
 
     @Override

@@ -1,11 +1,8 @@
-package com.yusq.videodemo.presenter;
+package com.yusq.videodemo.splash;
 
 import android.util.Log;
 
-import com.yusq.videodemo.activity.SplashActivity;
-import com.yusq.videodemo.controler.BaseAbstractLifePresenter;
-import com.yusq.videodemo.imlp.IMvpView;
-import com.yusq.videodemo.imlp.ISpashActivityConstract;
+import com.yusq.videodemo.presenter.BaseAbstractLifePresenter;
 import com.yusq.videodemo.utils.CustomCountTimer;
 
 /**
@@ -21,13 +18,13 @@ import com.yusq.videodemo.utils.CustomCountTimer;
  * <p>
  * 简 述：
  */
-public class SplashTimerPresenter  extends  BaseAbstractLifePresenter<ISpashActivityConstract.Iview> implements ISpashActivityConstract.Ipresenter {
+public class SplashTimerPresenter  extends  BaseAbstractLifePresenter<ISplashActivityConstract.Iview> implements ISplashActivityConstract.Ipresenter {
 
     private static final String TAG = "CHRIS";
 
     private CustomCountTimer countTimer;
 
-    public SplashTimerPresenter(ISpashActivityConstract.Iview pIMvpView) {
+    public SplashTimerPresenter(ISplashActivityConstract.Iview pIMvpView) {
         super(pIMvpView);
     }
 
@@ -59,7 +56,7 @@ public class SplashTimerPresenter  extends  BaseAbstractLifePresenter<ISpashActi
     }
 
     @Override
-    protected ISpashActivityConstract.Iview getEmptyView() {
+    protected ISplashActivityConstract.Iview getEmptyView() {
         return null;
     }
 

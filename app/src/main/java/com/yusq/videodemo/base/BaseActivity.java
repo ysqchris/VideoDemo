@@ -1,10 +1,9 @@
-package com.yusq.videodemo.activity;
+package com.yusq.videodemo.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
-import com.yusq.videodemo.controler.LifeCircleMvpActivity;
+import com.yusq.videodemo.presenter.LifeCircleMvpActivity;
 import com.yusq.videodemo.inject.SetViewInject;
 
 import butterknife.ButterKnife;

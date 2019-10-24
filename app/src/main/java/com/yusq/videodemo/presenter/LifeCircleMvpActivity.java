@@ -1,4 +1,4 @@
-package com.yusq.videodemo.controler;
+package com.yusq.videodemo.presenter;
 
 import android.content.Intent;
 import android.os.Bundle;

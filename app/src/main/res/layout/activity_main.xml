@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".main.MainActivity">
 
     <FrameLayout
+        android:id="@+id/fragment_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/rg_bottom_tab_main">
+
+
 
        <android.support.design.widget.FloatingActionButton
            android:id="@+id/fac_main_home"
@@ -19,10 +22,7 @@
            android:layout_marginBottom="@dimen/dp_40"
            android:layout_marginRight="@dimen/dp_20"
            />
-
-
     </FrameLayout>
-
 
     <FrameLayout
         android:id="@+id/rg_bottom_tab_main"

@@ -1,4 +1,7 @@
-package com.yusq.videodemo.imlp;
+package com.yusq.videodemo.splash;
+
+import com.yusq.videodemo.imlp.ILifeCycle;
+import com.yusq.videodemo.imlp.IMvpView;
 
 /**
  * 项目名：VideoDemo
@@ -7,20 +10,20 @@ package com.yusq.videodemo.imlp;
  * <p>
  * 包 名：com.yusq.videodemo.imlp
  * <p>
- * 类 名：ISpashActivityConstract
+ * 类 名：ISplashActivityConstract
  * <p>
  * 作 者：Yusq
  * <p>
  * 简 述：
  */
-public interface ISpashActivityConstract {
+public interface ISplashActivityConstract {
 
-    interface Iview extends  IMvpView{
+    interface Iview extends IMvpView {
           void setTimerStatusTv(String pTvtimer);
           void setTimerStatus(boolean pStatusTv);
     }
 
-    interface Ipresenter extends  ILifeCycle{
+    interface Ipresenter extends ILifeCycle {
           void initTimerCount();
     }
 

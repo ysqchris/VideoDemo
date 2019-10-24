@@ -1,6 +1,6 @@
 package com.yusq.videodemo.imlp;
 
-import com.yusq.videodemo.controler.MvpControler;
+import com.yusq.videodemo.presenter.MvpControler;
 
 /**
  * 项目名：VideoDemo

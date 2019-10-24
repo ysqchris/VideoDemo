@@ -1,4 +1,4 @@
-package com.yusq.videodemo.controler;
+package com.yusq.videodemo.presenter;
 
 import com.yusq.videodemo.imlp.ILifeCycle;
 import com.yusq.videodemo.imlp.IMvpView;
