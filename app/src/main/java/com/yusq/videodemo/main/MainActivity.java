@@ -1,6 +1,5 @@
 package com.yusq.videodemo.main;
 
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.View;
@@ -10,10 +9,10 @@ import android.widget.RadioGroup;
 
 import com.yusq.videodemo.R;
 import com.yusq.videodemo.base.BaseActivity;
+import com.yusq.videodemo.constant.LocalConstants;
 import com.yusq.videodemo.inject.SetViewInject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
@@ -62,24 +61,52 @@ public class MainActivity extends BaseActivity implements IMainActivityConstract
                     rgMainBottom.setVisibility(View.VISIBLE);
                     rgMainBottom1.setVisibility(View.GONE);
                 }
+                hindRgmainFragment();
+        }
+    }
+
+    private void hindRgmainFragment() {
+        if (presenter.getCurrentCheckIndex() < 2) {
+            presenter.replaceFragment(LocalConstants.BEI_JIN);
+            rbMainBeijing.setChecked(true);
+        } else {
+            presenter.replaceFragment(LocalConstants.SHANG_HAI);
+            rbMainShangnhai.setChecked(true);
         }
     }
 
 
     @Override
     public void showFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().show(fragment);
+        getSupportFragmentManager().beginTransaction().show(fragment).commit();
 
     }
 
     @Override
     public void addFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_layout, fragment);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_layout, fragment).commit();
     }
 
     @Override
     public void hideFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().hide(fragment);
+        getSupportFragmentManager().beginTransaction().hide(fragment).commit();
     }
 
+    @OnClick({R.id.rb_main_shangnhai, R.id.rb_main_hangzhou, R.id.rb_main_beijing, R.id.rb_main_shenzheng})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.rb_main_shangnhai:
+                presenter.replaceFragment(0);
+                break;
+            case R.id.rb_main_hangzhou:
+                presenter.replaceFragment(1);
+                break;
+            case R.id.rb_main_beijing:
+                presenter.replaceFragment(2);
+                break;
+            case R.id.rb_main_shenzheng:
+                presenter.replaceFragment(3);
+                break;
+        }
+    }
 }

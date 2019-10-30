@@ -18,6 +18,7 @@ public interface IMainActivityConstract {
 
     interface Ipresenter extends ILifeCycle {
        void initHomeFragment();
+       int getCurrentCheckIndex();
     }
 
 }

@@ -39,7 +39,7 @@ public class MainActivityPresenter extends BaseAbstractLifePresenter<IMainActivi
      * 替换当前的Frgment
      * @param mCurrentFragmentIndex
      */
-    private void replaceFragment(int mCurrentFragmentIndex) {
+    public void replaceFragment(int mCurrentFragmentIndex) {
         for (int i = 0; i < mFragments.length ; i++) {
             if(mCurrentFragmentIndex != i){
                 if(mFragments[i] != null){
@@ -55,6 +55,11 @@ public class MainActivityPresenter extends BaseAbstractLifePresenter<IMainActivi
             newCurrentFragment(mCurrentFragmentIndex);
             setCurrentShowIndex(mCurrentFragmentIndex);
         }
+    }
+
+    @Override
+    public int getCurrentCheckIndex() {
+        return mCurrentFragmentIndex;
     }
 
     /**
@@ -127,4 +132,6 @@ public class MainActivityPresenter extends BaseAbstractLifePresenter<IMainActivi
             getView().hideFragment(fragment);
         }
     }
+
+
 }
