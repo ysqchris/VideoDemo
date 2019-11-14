@@ -17,8 +17,7 @@
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              app:layout_scrollFlags="scroll|snap|enterAlways|exitUntilCollapsed"
-             app:contentScrim="@color/colorPrimary"
-             >
+             app:contentScrim="@color/colorPrimary">
 
              <ImageView
                  android:scaleType="fitXY"
@@ -30,21 +29,22 @@
                  app:layout_collapseParallaxMultiplier="0.5"
                  />
 
-
              <android.support.v7.widget.Toolbar
+                 android:id="@+id/shanghai_toolsbar"
                  android:layout_width="match_parent"
                  android:layout_height="?attr/actionBarSize"
                  app:layout_collapseMode="pin"
                  app:contentInsetLeft="0dp"
-                 app:contentInsetStart="0dp"
-                 >
+                 app:contentInsetStart="0dp">
 
                  <TextView
+                     android:id="@+id/shanghai_toolsbar_tx"
                      android:layout_width="match_parent"
                      android:layout_height="match_parent"
                      android:textColor="@color/colorAccent"
                      android:gravity="center"
                      android:text="上海都市圈"
+                     android:visibility="gone"
                      android:textStyle="bold"
                      android:textSize="@dimen/x22"
                      />
@@ -54,170 +54,22 @@
          </android.support.design.widget.CollapsingToolbarLayout>
 
 
+         <TextView
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/x100"
+             android:text="上海欢迎你"
+             android:background="@color/white"
+             android:gravity="center"
+             />
+
 
      </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:id="@+id/shanghai_app_nested_scrollview"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/shanghai_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
-        >
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-            <TextView
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
-                android:text="@string/shangnhai"
-                />
-
-
-        </LinearLayout>
-
-    </android.support.v4.widget.NestedScrollView>
-
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
 
 </android.support.design.widget.CoordinatorLayout>

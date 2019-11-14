@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment extends LifeCircleMvpFragment {
 
     private View mRootView;
-    private Context mContext;
+    protected Context mContext;
 
 
     @Override
@@ -48,7 +48,7 @@ public abstract class BaseFragment extends LifeCircleMvpFragment {
      * view 的依赖注入绑定
      */
     private void bindView(View rootView) {
-        ButterKnife.bind(rootView);
+        ButterKnife.bind(this, rootView);
     }
 
     /**
