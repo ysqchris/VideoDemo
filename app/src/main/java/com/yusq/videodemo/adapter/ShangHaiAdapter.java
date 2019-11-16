@@ -1,6 +1,7 @@
 package com.yusq.videodemo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.yusq.videodemo.R;
 import com.yusq.videodemo.bean.ShangHaiBean;
+import com.yusq.videodemo.model.shanghai.ShangHaiDetailActivity;
+
 import java.util.List;
 
 /**
@@ -92,6 +95,13 @@ public class ShangHaiAdapter  extends RecyclerView.Adapter {
         private void initView(View pView) {
            if(pView != null){
                itemContentTv = pView.findViewById(R.id.shanghai_recycler_view_item_content);
+               itemContentTv.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       Intent intent = new Intent(mContext , ShangHaiDetailActivity.class);
+                       mContext.startActivity(intent);
+                   }
+               });
            }
         }
     }
