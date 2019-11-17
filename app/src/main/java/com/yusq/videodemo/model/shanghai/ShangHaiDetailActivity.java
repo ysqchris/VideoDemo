@@ -42,7 +42,8 @@ public class ShangHaiDetailActivity extends BaseActivity {
      */
     private void initGetNetData() {
 
-        new ShanghaiDetailHttpTask().getDataList("desc" , "1" , "2");
+      //Object response =  new ShanghaiDetailHttpTask().getDataList("desc" , "1" , "2");
+       new  GetXiaoHuaTask().execute("desc" , "1" , "2");
 
 
 //        OkHttpClient client = new OkHttpClient();

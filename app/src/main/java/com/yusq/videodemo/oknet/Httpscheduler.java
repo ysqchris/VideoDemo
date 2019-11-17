@@ -17,4 +17,8 @@ import com.yusq.videodemo.oknet.request.IRequest;
  */
 public abstract  class Httpscheduler {
     public abstract ICall newCall(IRequest pRequest);
+
+    public  Object execute(ICall call){
+        return call.execute();
+    };
 }

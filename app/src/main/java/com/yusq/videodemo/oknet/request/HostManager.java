@@ -19,12 +19,12 @@ public interface HostManager {
 
         @Override
         public String getHost() {
-            return "url";
+            return "http://v.juhe.cn";
         }
 
         @Override
         public String getDefaultPath() {
-            return "path";
+            return "/joke/content/list.php";
         }
     };
 

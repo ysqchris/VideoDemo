@@ -25,17 +25,24 @@ import okhttp3.Response;
  */
 public class OkHttpCall implements ICall {
 
+    private final Call mCall;
+
     public OkHttpCall(IRequest pRequest, Call pCall) {
-       pCall.enqueue(new Callback() {
-           @Override
-           public void onFailure(@NotNull Call pCall, @NotNull IOException pE) {
-
-           }
-
-           @Override
-           public void onResponse(@NotNull Call pCall, @NotNull Response pResponse) throws IOException {
-
-           }
-       });
+        mCall = pCall;
     }
+
+    @Override
+    public Object execute() {
+        Response response = null;
+        if(mCall != null){
+            try  {
+             response = mCall.execute();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        return response;
+    }
+
+
 }

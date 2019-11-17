@@ -24,8 +24,9 @@ public class HttpHelper {
 
     public static Object execute(IRequest pRequest, Map<String, Object> pParams) {
          pRequest.setParams(pParams);
-         ICall  call = getHttpScheduler().newCall(pRequest);
-         return  call;
+         ICall  iCall = getHttpScheduler().newCall(pRequest);
+         Object response = getHttpScheduler().execute(iCall);
+         return response ;
     }
 
     private static Httpscheduler getHttpScheduler() {

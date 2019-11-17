@@ -19,6 +19,6 @@ import com.yusq.videodemo.oknet.request.IRequest;
  */
 public interface ShangHaiDetailRequest {
 
-    IRequest  xiaohuaRequest = IDataRequest.sendHttp("path" , RequestMethod.Get);
+    IRequest  xiaohuaRequest = IDataRequest.sendHttp("/joke/content/list.php" , RequestMethod.Get);
 
 }

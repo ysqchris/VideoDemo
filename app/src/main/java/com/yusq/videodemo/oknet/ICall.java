@@ -14,7 +14,5 @@ package com.yusq.videodemo.oknet;
  * 简 述：
  */
 public interface ICall {
-
-
-
+    Object execute();
 }

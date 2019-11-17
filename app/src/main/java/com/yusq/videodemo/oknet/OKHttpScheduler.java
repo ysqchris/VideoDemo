@@ -59,10 +59,18 @@ class OKHttpScheduler extends Httpscheduler {
         return okHttpCall;
     }
 
+    @Override
+    public Object execute(ICall call) {
+        return super.execute(call);
+    }
+
     private OkHttpClient getClient() {
         if(client == null){
             client = new OkHttpClient();
         }
         return client;
     }
+
+
+
 }
