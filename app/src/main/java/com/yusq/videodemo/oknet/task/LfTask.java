@@ -13,9 +13,6 @@ package com.yusq.videodemo.oknet.task;
  * <p>
  * 简 述：
  */
-public abstract class LfTask implements  ITaskBackground , ITaskCallback{
-
-
-
+public abstract class LfTask<Result> implements  ITaskBackground<Result> , ITaskCallback<Result>{
 
 }

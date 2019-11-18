@@ -3,7 +3,6 @@ package com.yusq.videodemo.oknet.task;
 import com.yusq.videodemo.oknet.tools.ThreadUtil;
 
 import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 /**
@@ -19,15 +18,15 @@ import java.util.concurrent.FutureTask;
  * <p>
  * 简 述：
  */
-public class AsyTaskInstance extends FutureTask {
+public class AsyTaskInstance<Result> extends FutureTask<Result> {
 
     private final ITaskBackground mTaskBackground;
     private final ITaskCallback mITaskCallback;
 
-    public AsyTaskInstance(ITaskBackground pTaskBackground, ITaskCallback pITaskCallback ) {
-        super(new Callable() {
+    public AsyTaskInstance(ITaskBackground<Result> pTaskBackground, ITaskCallback<Result> pITaskCallback ) {
+        super(new Callable<Result>() {
             @Override
-            public Object call() throws Exception {
+            public Result call() throws Exception {
                 return pTaskBackground.doingBackground();
             }
         });
@@ -39,12 +38,12 @@ public class AsyTaskInstance extends FutureTask {
     protected void done() {
        if(mITaskCallback != null){
            try {
-               Object o = get();
+               Result o = get();
                if(o != null){
                    ThreadUtil.postMainThread(new Runnable() {
                        @Override
                        public void run() {
-                           mITaskCallback.onSuccess(o);
+                           mITaskCallback.onComplete(o);
                        }
                    });
                }

@@ -21,10 +21,18 @@ public class ResultData<T> implements IResult{
     protected T data;
     private  int code;
     private  String message;
+    private boolean isSuccess;
+
+
+    @Override
+    public boolean isSuccess() {
+        return isSuccess;
+    }
 
     public static IResult failed() {
         ResultData resultData = new ResultData();
         resultData.code = CODE_404;
+        resultData.isSuccess = false;
         return resultData;
 
     }
@@ -33,7 +41,13 @@ public class ResultData<T> implements IResult{
         ResultData resultData = new ResultData();
         resultData.data = object;
         resultData.code = CODE_200;
+        resultData.isSuccess = true;
         return resultData;
 
+    }
+
+    @Override
+    public T getData() {
+        return data;
     }
 }

@@ -1,5 +1,6 @@
 package com.yusq.videodemo.oknet.task;
 
+
 /**
  * 项目名：VideoDemo
  * <p>
@@ -13,8 +14,8 @@ package com.yusq.videodemo.oknet.task;
  * <p>
  * 简 述：
  */
-public interface ITaskBackground {
+public interface ITaskBackground<Result> {
 
-    Object doingBackground();
+    Result doingBackground();
 
 }

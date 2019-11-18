@@ -14,4 +14,8 @@ package com.yusq.videodemo.oknet.result;
  * 简 述：IResponse 解析后的结果
  */
 public interface IResult<T>{
+
+      boolean isSuccess();
+
+      T getData();
 }

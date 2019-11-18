@@ -13,9 +13,9 @@ package com.yusq.videodemo.oknet.task;
  * <p>
  * 简 述：
  */
-public interface ITaskCallback {
+public interface ITaskCallback<Result> {
 
-    void onSuccess(Object pO);
+    void onComplete(Result result);
 
     void onException(Throwable pThrowable);
 

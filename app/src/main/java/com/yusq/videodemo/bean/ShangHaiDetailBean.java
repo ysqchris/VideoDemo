@@ -17,19 +17,18 @@ import java.util.ArrayList;
  */
 public class ShangHaiDetailBean {
 
-    int error_code;
-    String reason;
-    ResultListBean result;
+    public int error_code;
+    public String reason;
+    public ResultListBean result;
 
     public static class ResultListBean {
-       ArrayList<ResultBean> data ;
-
+      public ArrayList<ResultBean> data;
     }
 
-    private static class ResultBean {
-        String content;
-        String hashId;
-        String unixtime;
-        String updatetime;
+    public static class ResultBean {
+        public String content;
+        public String hashId;
+        public String unixtime;
+        public String updatetime;
     }
 }
