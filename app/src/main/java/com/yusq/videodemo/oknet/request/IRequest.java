@@ -1,5 +1,8 @@
 package com.yusq.videodemo.oknet.request;
 
+import com.yusq.videodemo.oknet.response.IParser;
+
+import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
@@ -15,7 +18,7 @@ import java.util.Map;
  * <p>
  * 简 述：
  */
-public interface IRequest {
+public interface IRequest{
 
     void setParams(Map<String  , Object> pParams);
 
@@ -29,5 +32,7 @@ public interface IRequest {
 
     void setPath(String pPath);
 
+    IParser getIParser();
 
+    Type getType();
 }

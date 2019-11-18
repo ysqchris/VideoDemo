@@ -1,6 +1,8 @@
 package com.yusq.videodemo.oknet;
 
+import com.yusq.videodemo.oknet.okhttp.OKHttpScheduler;
 import com.yusq.videodemo.oknet.request.IRequest;
+import com.yusq.videodemo.oknet.result.IResult;
 
 import java.util.Map;
 
@@ -22,11 +24,10 @@ public class HttpHelper {
     private  volatile  static  Httpscheduler httpscheduler;
 
 
-    public static Object execute(IRequest pRequest, Map<String, Object> pParams) {
+    public static <T> IResult<T> execute(IRequest pRequest, Map<String, Object> pParams) {
          pRequest.setParams(pParams);
          ICall  iCall = getHttpScheduler().newCall(pRequest);
-         Object response = getHttpScheduler().execute(iCall);
-         return response ;
+         return getHttpScheduler().execute(iCall);
     }
 
     private static Httpscheduler getHttpScheduler() {

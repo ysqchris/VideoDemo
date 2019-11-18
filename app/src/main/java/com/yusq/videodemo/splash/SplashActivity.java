@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.yusq.videodemo.R;
 import com.yusq.videodemo.base.BaseActivity;
-import com.yusq.videodemo.main.MainActivity;
+import com.yusq.videodemo.model.main.MainActivity;
 import com.yusq.videodemo.inject.SetViewInject;
 import com.yusq.videodemo.view.FullScreenVideoView;
 

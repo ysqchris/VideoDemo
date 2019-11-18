@@ -5,6 +5,8 @@ import android.util.Log;
 import com.yusq.videodemo.R;
 import com.yusq.videodemo.base.BaseActivity;
 import com.yusq.videodemo.inject.SetViewInject;
+import com.yusq.videodemo.model.shanghai.presenter.IShangHaiDetailActivityConstract;
+import com.yusq.videodemo.model.shanghai.presenter.ShangHaiDetailPresenter;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -30,7 +32,10 @@ import okhttp3.Response;
  * 简 述：
  */
 @SetViewInject(mainLayoutId = R.layout.shanghai_detail_layout)
-public class ShangHaiDetailActivity extends BaseActivity {
+public class ShangHaiDetailActivity extends BaseActivity implements IShangHaiDetailActivityConstract.Iview {
+
+    IShangHaiDetailActivityConstract.Ipresenter mIpresenter = new ShangHaiDetailPresenter(this);
+
 
     @Override
     public void afterBindView() {
@@ -41,24 +46,6 @@ public class ShangHaiDetailActivity extends BaseActivity {
      * 网络请求
      */
     private void initGetNetData() {
-
-      //Object response =  new ShanghaiDetailHttpTask().getDataList("desc" , "1" , "2");
-       new  GetXiaoHuaTask().execute("desc" , "1" , "2");
-
-
-//        OkHttpClient client = new OkHttpClient();
-//        Request request = new Request.Builder().url("http://www.baidu.com").get().build();
-//        Call call =  client.newCall(request);
-//        call.enqueue(new Callback() {
-//            @Override
-//            public void onFailure(@NotNull Call pCall, @NotNull IOException pE) {
-//                Log.e("CHRIS", "onResponse: "+ pE.fillInStackTrace());
-//            }
-//
-//            @Override
-//            public void onResponse(@NotNull Call pCall, @NotNull Response pResponse) throws IOException {
-//                Log.e("CHRIS", "onResponse: "+ pResponse.body().string());
-//            }
-//        });
+          mIpresenter.getNetData();
     }
 }

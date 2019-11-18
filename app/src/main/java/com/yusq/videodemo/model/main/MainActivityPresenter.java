@@ -1,4 +1,4 @@
-package com.yusq.videodemo.main;
+package com.yusq.videodemo.model.main;
 
 import android.support.v4.app.Fragment;
 

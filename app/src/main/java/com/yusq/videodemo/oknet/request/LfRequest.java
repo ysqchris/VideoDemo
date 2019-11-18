@@ -3,8 +3,9 @@ package com.yusq.videodemo.oknet.request;
 import android.text.TextUtils;
 
 import com.yusq.videodemo.inject.RequestMethod;
+import com.yusq.videodemo.oknet.response.IParser;
 
-import java.nio.file.Path;
+import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
@@ -34,6 +35,10 @@ public class LfRequest implements IRequest {
 
     //请求地址路径
     protected String mPath;
+
+    protected Type type;
+
+    protected IParser resultParser;
 
     public void setParams(Map<String, Object> pParams) {
         mParams = pParams;
@@ -67,5 +72,15 @@ public class LfRequest implements IRequest {
     @Override
     public void setPath(String path) {
        mPath = path;
+    }
+
+    @Override
+    public IParser getIParser() {
+        return  resultParser;
+    }
+
+    @Override
+    public Type getType() {
+        return type;
     }
 }

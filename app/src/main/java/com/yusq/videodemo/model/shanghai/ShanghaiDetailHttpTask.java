@@ -1,6 +1,7 @@
 package com.yusq.videodemo.model.shanghai;
 
-import com.yusq.videodemo.oknet.LfHttpTask;
+import com.yusq.videodemo.oknet.LfHttpServer;
+import com.yusq.videodemo.oknet.result.IResult;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,9 +19,9 @@ import java.util.Map;
  * <p>
  * 简 述：
  */
-public class ShanghaiDetailHttpTask extends LfHttpTask {
+public class ShanghaiDetailHttpTask extends LfHttpServer {
 
-    public Object getDataList(String sort , String page, String pageSize){
+    public IResult getDataList(String sort , String page, String pageSize){
         Map<String , Object> params = new HashMap<>();
         params.put("sort" , sort);
         params.put("page" , page);

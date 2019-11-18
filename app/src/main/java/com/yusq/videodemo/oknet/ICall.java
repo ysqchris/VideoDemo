@@ -1,5 +1,8 @@
 package com.yusq.videodemo.oknet;
 
+import com.yusq.videodemo.oknet.request.IRequest;
+import com.yusq.videodemo.oknet.response.IResponse;
+
 /**
  * 项目名：VideoDemo
  * <p>
@@ -14,5 +17,8 @@ package com.yusq.videodemo.oknet;
  * 简 述：
  */
 public interface ICall {
-    Object execute();
+
+    IResponse execute();
+
+    IRequest getRequest();
 }

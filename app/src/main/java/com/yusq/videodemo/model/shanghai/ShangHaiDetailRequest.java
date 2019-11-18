@@ -1,6 +1,7 @@
 package com.yusq.videodemo.model.shanghai;
 
 import com.yusq.videodemo.base.IDataRequest;
+import com.yusq.videodemo.bean.ShangHaiDetailBean;
 import com.yusq.videodemo.inject.RequestMethod;
 import com.yusq.videodemo.oknet.request.IRequest;
 
@@ -18,7 +19,5 @@ import com.yusq.videodemo.oknet.request.IRequest;
  * 简 述：
  */
 public interface ShangHaiDetailRequest {
-
-    IRequest  xiaohuaRequest = IDataRequest.sendHttp("/joke/content/list.php" , RequestMethod.Get);
-
+    IRequest  xiaohuaRequest = IDataRequest.sendHttp("/joke/content/list.php" , RequestMethod.Get , ShangHaiDetailBean.class);
 }

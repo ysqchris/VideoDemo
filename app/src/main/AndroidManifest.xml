@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".main.MainActivity"/>
+        <activity android:name=".model.main.MainActivity"/>
 
         <activity android:name=".test.TestActivity">
             <intent-filter>

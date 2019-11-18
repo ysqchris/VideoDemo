@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.yusq.videodemo.imlp.IMvpView;
+import com.yusq.videodemo.oknet.task.LfTask;
+import com.yusq.videodemo.oknet.task.TaskHelper;
 
 /**
  * 项目名：VideoDemo
@@ -80,5 +82,9 @@ public abstract class BaseAbstractLifePresenter<T extends IMvpView> extends Life
     @Override
     public void onSaveInstanceState(Bundle pBundle) {
 
+    }
+
+    public void submitTask(LfTask pLfTask){
+        TaskHelper.submitTask(pLfTask , pLfTask);
     }
 }

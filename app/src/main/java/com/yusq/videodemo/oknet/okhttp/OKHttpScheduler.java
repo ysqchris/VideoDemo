@@ -1,7 +1,10 @@
-package com.yusq.videodemo.oknet;
+package com.yusq.videodemo.oknet.okhttp;
 
 import com.yusq.videodemo.inject.RequestMethod;
+import com.yusq.videodemo.oknet.Httpscheduler;
+import com.yusq.videodemo.oknet.ICall;
 import com.yusq.videodemo.oknet.request.IRequest;
+import com.yusq.videodemo.oknet.result.IResult;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -24,7 +27,7 @@ import okhttp3.Request;
  * <p>
  * 简 述：
  */
-class OKHttpScheduler extends Httpscheduler {
+public class OKHttpScheduler extends Httpscheduler {
 
     private OkHttpClient client;
     Request.Builder  requestBuild = new Request.Builder();
@@ -60,7 +63,7 @@ class OKHttpScheduler extends Httpscheduler {
     }
 
     @Override
-    public Object execute(ICall call) {
+    public IResult execute(ICall call) {
         return super.execute(call);
     }
 

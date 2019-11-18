@@ -1,13 +1,12 @@
-package com.yusq.videodemo.oknet;
+package com.yusq.videodemo.oknet.okhttp;
 
+import com.yusq.videodemo.oknet.ICall;
 import com.yusq.videodemo.oknet.request.IRequest;
-
-import org.jetbrains.annotations.NotNull;
+import com.yusq.videodemo.oknet.response.IResponse;
+import com.yusq.videodemo.oknet.okhttp.OkHttpResponse;
 
 import java.io.IOException;
-
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.Response;
 
 /**
@@ -26,13 +25,15 @@ import okhttp3.Response;
 public class OkHttpCall implements ICall {
 
     private final Call mCall;
+    private final IRequest mIRequest;
 
     public OkHttpCall(IRequest pRequest, Call pCall) {
         mCall = pCall;
+        mIRequest = pRequest;
     }
 
     @Override
-    public Object execute() {
+    public IResponse execute() {
         Response response = null;
         if(mCall != null){
             try  {
@@ -41,8 +42,12 @@ public class OkHttpCall implements ICall {
                 e.printStackTrace();
             }
         }
-        return response;
+        //静态代理
+        return new OkHttpResponse(response);
     }
 
-
+    @Override
+    public IRequest getRequest() {
+        return mIRequest;
+    }
 }
