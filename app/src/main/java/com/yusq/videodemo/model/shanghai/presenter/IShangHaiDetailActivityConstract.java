@@ -2,6 +2,7 @@ package com.yusq.videodemo.model.shanghai.presenter;
 
 import android.support.v4.app.Fragment;
 
+import com.yusq.videodemo.bean.ShangHaiDetailBean;
 import com.yusq.videodemo.imlp.ILifeCycle;
 import com.yusq.videodemo.imlp.IMvpView;
 
@@ -21,8 +22,7 @@ import com.yusq.videodemo.imlp.IMvpView;
 public interface IShangHaiDetailActivityConstract {
 
     interface Iview extends IMvpView {
-
-
+        void showData(ShangHaiDetailBean data);
     }
 
     interface Ipresenter extends ILifeCycle {

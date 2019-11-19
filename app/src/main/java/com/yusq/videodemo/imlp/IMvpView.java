@@ -1,5 +1,6 @@
 package com.yusq.videodemo.imlp;
 
+import com.yusq.videodemo.bean.ShangHaiDetailBean;
 import com.yusq.videodemo.presenter.MvpControler;
 
 /**

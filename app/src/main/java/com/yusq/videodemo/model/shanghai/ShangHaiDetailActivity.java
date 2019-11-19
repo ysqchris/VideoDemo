@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.yusq.videodemo.R;
 import com.yusq.videodemo.base.BaseActivity;
+import com.yusq.videodemo.bean.ShangHaiDetailBean;
 import com.yusq.videodemo.inject.SetViewInject;
 import com.yusq.videodemo.model.shanghai.presenter.IShangHaiDetailActivityConstract;
 import com.yusq.videodemo.model.shanghai.presenter.ShangHaiDetailPresenter;
@@ -47,5 +48,10 @@ public class ShangHaiDetailActivity extends BaseActivity implements IShangHaiDet
      */
     private void initGetNetData() {
           mIpresenter.getNetData();
+    }
+
+    @Override
+    public void showData(ShangHaiDetailBean data) {
+
     }
 }

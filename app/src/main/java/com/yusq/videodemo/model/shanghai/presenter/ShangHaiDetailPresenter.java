@@ -47,19 +47,19 @@ public class ShangHaiDetailPresenter  extends BaseAbstractLifePresenter<IShangHa
          * 1. 合理利用继承关系
          * 2. 合理利用抽象编程
          * 3. 合理利用泛型传递数据
-         * 4. 合理利用一些设计模式
+         *
          */
         submitTask(new BaseTask<ShangHaiDetailBean>(){
 
                 @Override
                 public IResult<ShangHaiDetailBean> doingBackground() {
-                    return new ShanghaiDetailHttpTask().getDataList("desc" , "1" , "2");
+                    return new ShanghaiDetailHttpTask().getDataList("desc" , "1" , "20");
                 }
 
                 @Override
                 public void onSuccess(IResult<ShangHaiDetailBean> t) {
                     ShangHaiDetailBean data = t.getData();
-                    Log.e("CHRIS", "onSuccess: 結果 " + data.result.data.get(0).content);
+                    getView().showData(data);
                 }
             });
         }

@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 
 import com.yusq.videodemo.R;
 import com.yusq.videodemo.fragment.BeiJingFragment;
-import com.yusq.videodemo.fragment.HangZhouFragment;
-import com.yusq.videodemo.fragment.ShangHaiFragment;
+import com.yusq.videodemo.model.hangzhou.HangZhouFragment;
+import com.yusq.videodemo.model.shanghai.ShangHaiFragment;
 import com.yusq.videodemo.fragment.ShengzhengFragment;
 import com.yusq.videodemo.imlp.IMvpView;
 import com.yusq.videodemo.presenter.BaseAbstractLifePresenter;

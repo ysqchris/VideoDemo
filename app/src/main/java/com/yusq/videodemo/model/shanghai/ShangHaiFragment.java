@@ -1,22 +1,18 @@
-package com.yusq.videodemo.fragment;
+package com.yusq.videodemo.model.shanghai;
 
 
-import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yusq.videodemo.R;
-import com.yusq.videodemo.adapter.ShangHaiAdapter;
+import com.yusq.videodemo.model.shanghai.adapter.ShangHaiAdapter;
 import com.yusq.videodemo.base.BaseFragment;
 import com.yusq.videodemo.bean.ShangHaiBean;
 import com.yusq.videodemo.inject.SetViewInject;
@@ -25,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
