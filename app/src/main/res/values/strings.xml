@@ -4,4 +4,5 @@
     <string name="hangzhou">杭州</string>
     <string name="beijing">北京</string>
     <string name="shenzheng">深圳</string>
+    <string name="bottom_show_behavior">com.yusq.videodemo.model.hangzhou.design.BottomBehaviorDesign</string>
 </resources>

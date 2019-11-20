@@ -28,4 +28,15 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
+    <TextView
+        android:id="@+id/behavior_bottom_text"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="底部弹窗"
+        android:layout_gravity="bottom"
+        app:layout_behavior="@string/bottom_show_behavior"
+        android:background="@color/colorAccent"
+        android:textColor="@color/white"
+        />
 </android.support.design.widget.CoordinatorLayout>

@@ -16,6 +16,7 @@ import com.yusq.videodemo.R;
 import com.yusq.videodemo.base.BaseFragment;
 import com.yusq.videodemo.fragment.ShengzhengFragment;
 import com.yusq.videodemo.inject.SetViewInject;
+import com.yusq.videodemo.model.hangzhou.adapter.HangzhouFragmentStatePagerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,22 +38,7 @@ public class HangZhouFragment extends BaseFragment {
     public void afterBindView() {
         hangzhouTabLayout.setupWithViewPager(hangzhouViewPager);
         childFragmentManager = getChildFragmentManager();
-        hangzhouViewPager.setAdapter(new FragmentPagerAdapter(childFragmentManager) {
-            @Override
-            public Fragment getItem(int i) {
-                return new BehaviorFragment();
-            }
-
-            @Override
-            public int getCount() {
-                return 5;
-            }
-
-            @Override
-            public CharSequence getPageTitle(int position) {
-                return "标题"+position;
-            }
-        });
+        hangzhouViewPager.setAdapter(new HangzhouFragmentStatePagerAdapter(childFragmentManager));
     }
 
 
