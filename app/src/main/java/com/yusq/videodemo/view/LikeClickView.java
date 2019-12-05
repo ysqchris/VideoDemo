@@ -9,6 +9,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.yusq.videodemo.R;
@@ -46,14 +47,57 @@ public class LikeClickView extends View {
 
     }
 
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int measureWidth = 0;
+        int measureHeight = 0;
+        // 显示的最大的宽高
+        int maxHeight = backBitmap.getHeight() + getContext().getResources().getDimensionPixelSize(R.dimen.x20);
+        int maxWidth = backBitmap.getWidth() + getContext().getResources().getDimensionPixelSize(R.dimen.x30);
+        // 当前View的测量模式
+        int mode = MeasureSpec.getMode(widthMeasureSpec);
+        // 当前View的设置的宽高
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        // 费精确宽高的模式下
+        if(mode != MeasureSpec.EXACTLY){
+           // 测量模式未指定的模式下， 如果背景有多大，空间就设置多大
+            int miniWidth = getSuggestedMinimumWidth();
+            int miniHeight = getSuggestedMinimumHeight();
+            if(miniWidth == 0){
+                measureWidth = maxWidth;
+            }else {
+                measureWidth = Math.min(miniWidth,maxHeight);
+            }
+            if(miniHeight == 0){
+                measureHeight = maxHeight;
+            }else {
+                measureHeight = Math.min(miniHeight,maxHeight);
+            }
+        }else { // 精确宽高的模式下
+            measureWidth = Math.min(widthSize,maxWidth);
+            measureHeight = Math.min(heightSize,maxHeight);
+        }
+        setMeasuredDimension(measureWidth,measureHeight);
+       // super.onMeasure(widthMeasureSpec ,heightMeasureSpec);
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        int width = getWidth();
+        int height = getHeight();
+        int bitMapWidth = backBitmap.getWidth();
+        int bitMapHeight = backBitmap.getHeight();
+        int left = (width-bitMapWidth)/2;
+        int top = (height-bitMapHeight)/2;
         if(iBitmap != null && paint != null) {
             if(isLike) {
-                canvas.drawBitmap(iBitmap, 100, 200, paint);
+                canvas.drawBitmap(iBitmap, left, top, paint);
             }else {
-                canvas.drawBitmap(backBitmap, 100, 200, paint);
+                canvas.drawBitmap(backBitmap, left, top, paint);
             }
         }
     }
@@ -62,5 +106,21 @@ public class LikeClickView extends View {
     public void ChangeIsLike() {
         isLike = !isLike;
         invalidate();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        return super.onTouchEvent(event);
+    }
+
+    /**
+     * 当view 销毁的时候需要 回收清理一下 对象
+     */
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        backBitmap.recycle();
+        iBitmap.recycle();
     }
 }

@@ -7,8 +7,8 @@
 
     <com.yusq.videodemo.view.LikeClickView
         android:id="@+id/design_view_is_like"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/x300"
+        android:layout_height="@dimen/x200"
         app:is_like="false"
         />
 
