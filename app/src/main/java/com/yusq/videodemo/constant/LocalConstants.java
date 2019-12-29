@@ -1,7 +1,7 @@
 package com.yusq.videodemo.constant;
 
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import static com.yusq.videodemo.constant.LocalConstants.BEI_JIN;
 import static com.yusq.videodemo.constant.LocalConstants.HANG_ZHOU;

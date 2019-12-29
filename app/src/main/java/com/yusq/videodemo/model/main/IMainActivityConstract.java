@@ -1,6 +1,6 @@
 package com.yusq.videodemo.model.main;
 
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.yusq.videodemo.imlp.ILifeCycle;
 import com.yusq.videodemo.imlp.IMvpView;

@@ -1,7 +1,7 @@
 package com.yusq.videodemo.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.yusq.videodemo.presenter.LifeCircleMvpActivity;
 import com.yusq.videodemo.inject.SetViewInject;

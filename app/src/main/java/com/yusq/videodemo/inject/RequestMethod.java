@@ -1,6 +1,6 @@
 package com.yusq.videodemo.inject;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import static com.yusq.videodemo.inject.RequestMethod.Get;
 import static com.yusq.videodemo.inject.RequestMethod.Post;

@@ -1,10 +1,10 @@
 package com.yusq.videodemo.model.hangzhou.behavior;
 
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.appbar.AppBarLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,10 +38,6 @@ public class BehaviorFragment extends BaseFragment implements IShangHaiDetailAct
     AppBarLayout behaviorAppBarLayout;
     @BindView(R.id.behavior_recycler_view)
     RecyclerView behaviorRecyclerView;
-
-
-    Unbinder unbinder;
-
     List<ShangHaiDetailBean.ResultBean> resultBeanList;
     @BindView(R.id.behavior_bottom_text)
     TextView behaviorBottomText;
@@ -68,7 +64,7 @@ public class BehaviorFragment extends BaseFragment implements IShangHaiDetailAct
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+        unbinder1.unbind();
     }
 
     @Override

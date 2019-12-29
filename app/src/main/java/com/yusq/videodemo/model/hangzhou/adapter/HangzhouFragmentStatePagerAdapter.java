@@ -1,11 +1,15 @@
 package com.yusq.videodemo.model.hangzhou.adapter;
 
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import android.icu.text.RelativeDateTimeFormatter;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.yusq.videodemo.model.hangzhou.behavior.BehaviorFragment;
+import com.yusq.videodemo.model.hangzhou.refresh.RefreshListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +23,7 @@ public class HangzhouFragmentStatePagerAdapter extends FragmentStatePagerAdapter
         super(fm);
         fragmentsTitle.add("仿知乎");
         fragmentsTitle.add("仿即刻");
+        fragmentsTitle.add("下拉刷新");
     }
 
     @Override
@@ -28,6 +33,8 @@ public class HangzhouFragmentStatePagerAdapter extends FragmentStatePagerAdapter
                 return new BehaviorFragment();
             case 1:
                 return new DesignViewFragment();
+            case 2:
+                return new RefreshListFragment();
             default:
         }
         return new BehaviorFragment();
