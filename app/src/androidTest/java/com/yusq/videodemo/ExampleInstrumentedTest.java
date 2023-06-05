@@ -19,7 +19,7 @@ public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
         // Context of the app under test.
-        // 测试文案
+        // 测试文案 测试
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.yusq.videodemo", appContext.getPackageName());
